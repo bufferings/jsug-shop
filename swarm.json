@@ -1,0 +1,33 @@
+{
+  "app_name": "jsug-shop",
+  "services": [
+    {
+      "service_name": "jsug-shop-service",
+      "components": [
+        {
+          "component_name": "java",
+          "image": "$username/jsug-shop",
+          "ports": [
+            8080
+          ],
+          "domains": {
+            "jsug-shop-$username.gigantic.io": 8080
+          },
+          "dependencies": [
+            {
+              "name": "redis",
+              "port": 6379
+            }
+          ]
+        },
+        {
+          "component_name": "redis",
+          "image": "redis",
+          "ports": [
+            6379
+          ]
+        }
+      ]
+    }
+  ]
+}
